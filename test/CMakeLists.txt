@@ -12,6 +12,7 @@ add_subdirectory(CAPI)
 
 set(MLIR_TEST_DEPENDS
   FileCheck
+  not
   cuda-tile-opt
   cuda-tile-translate
   ${CAPI_TEST_TARGETS}

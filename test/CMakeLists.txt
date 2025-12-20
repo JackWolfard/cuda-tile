@@ -1,6 +1,10 @@
 # Passed to lit.site.cfg.py.in to set up the path where to find libraries.
 set(MLIR_LIB_DIR ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
+llvm_canonicalize_cmake_booleans(
+  CUDA_TILE_ENABLE_BINDINGS_PYTHON
+)
+
 configure_lit_site_cfg(
   ${CMAKE_CURRENT_SOURCE_DIR}/lit.site.cfg.py.in
   ${CMAKE_CURRENT_BINARY_DIR}/lit.site.cfg.py

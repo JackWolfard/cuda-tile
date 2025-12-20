@@ -15,4 +15,5 @@ INSTALL_DIR="$REPO_ROOT/install"
 uv venv "$REPO_ROOT/.venv/cuda-tile" --seed --python 3.12
 source "$REPO_ROOT/.venv/cuda-tile/bin/activate"
 uv pip install \
-  --requirements "$REPO_ROOT/third_party/llvm-project/mlir/python/requirements.txt"
+  --requirements "$REPO_ROOT/third_party/llvm-project/mlir/python/requirements.txt" \
+  pytest

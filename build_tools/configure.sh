@@ -8,9 +8,10 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 REPO_ROOT="$(realpath -s "$SCRIPT_DIR/../")"
-
-BUILD_DIR="$REPO_ROOT/build"
-INSTALL_DIR="$REPO_ROOT/install"
+BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD)"
+BRANCH_STEM="${BRANCH_NAME//\//-}"
+BUILD_DIR="$REPO_ROOT/build/$BRANCH_STEM"
+INSTALL_DIR="$REPO_ROOT/install/$BRANCH_STEM"
 
 cmake -G Ninja -S "$REPO_ROOT" -B "$BUILD_DIR" \
   -DCMAKE_BUILD_TYPE=Release \
